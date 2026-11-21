@@ -1636,10 +1636,9 @@
             const browserLang = (browserPrefs.map(x => (x || '').toLowerCase().split('-')[0]).find(x => supported.includes(x))) || 'en';
             if (!explicitLang && window.location.pathname.replace(/\/$/, '') === '/respizen') {
                 const targetLang = (preferred && supported.includes(preferred)) ? preferred : browserLang;
-                if (targetLang !== 'en') {
-                    window.location.replace('/respizen/' + targetLang + '/');
-                    return;
-                }
+                // Always use a dedicated URL, including /en/ for English.
+                window.location.replace('/respizen/' + targetLang + '/');
+                return;
             }
             setLanguage(explicitLang || (preferred && supported.includes(preferred) ? preferred : 'en'));
         })();
