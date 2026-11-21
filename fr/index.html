@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags (Default: English) -->
+    <title id="meta-title">RespiZen - Respiration & Calme | Cohérence Cardiaque & Respiration Guidée</title>
+    <meta id="meta-description" name="description" content="RespiZen est une application de cohérence cardiaque et de respiration guidée, simple, gratuite et 100% personnalisable. Anti-stress, relaxation et sommeil sans création de compte.">
+    <meta id="meta-keywords" name="keywords" content="RespiZen, cardiac coherence, guided breathing, breathing exercises, anti-stress app, relaxation, sleep aid, 4-7-8 breathing, box breathing, free breathing app Android">
+    <meta name="author" content="AppBuild71">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Localized SEO URLs -->
+    <link rel="canonical" href="https://app-build71.github.io/respizen/fr/">
+    <link rel="alternate" hreflang="en" href="https://app-build71.github.io/respizen/en/">
+    <link rel="alternate" hreflang="fr" href="https://app-build71.github.io/respizen/fr/">
+    <link rel="alternate" hreflang="es" href="https://app-build71.github.io/respizen/es/">
+    <link rel="alternate" hreflang="it" href="https://app-build71.github.io/respizen/it/">
+    <link rel="alternate" hreflang="x-default" href="https://app-build71.github.io/respizen/">
+
+    <!-- Open Graph / Facebook / Social Sharing -->
+    <meta id="og-title" property="og:title" content="RespiZen - Respiration & Calme | Cohérence Cardiaque & Respiration Guidée">
+    <meta id="og-description" property="og:description" content="RespiZen est une application de cohérence cardiaque et de respiration guidée, simple, gratuite et 100% personnalisable. Anti-stress, relaxation et sommeil sans création de compte.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://play.google.com/store/apps/details?id=fr.appbuild71.respizen">
+    <meta property="og:site_name" content="RespiZen">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta id="twitter-title" name="twitter:title" content="RespiZen - Respiration & Calme | Cohérence Cardiaque & Respiration Guidée">
+    <meta id="twitter-description" name="twitter:description" content="RespiZen est une application de cohérence cardiaque et de respiration guidée, simple, gratuite et 100% personnalisable. Anti-stress, relaxation et sommeil sans création de compte.">
+
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        zen: {
+                            bg: '#120C1F',
+                            surface: '#1B122E',
+                            card: '#22173A',
+                            border: '#342459',
+                            primary: '#8B5CF6',
+                            glow: '#A855F7',
+                            magenta: '#D946EF',
+                            cyan: '#0EA5E9',
+                            pink: '#EC4899',
+                            crimson: '#E11D48',
+                            muted: '#A79EC4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Meditative Glows & Interactive Orb -->
+    <style>
+        body {
+            background-color: #120C1F;
+            color: #f3f0ff;
+            overflow-x: hidden;
+        }
+
+        .nebula-bg {
+            background-color: #120C1F;
+            background-image: 
+                radial-gradient(circle at 20% 15%, rgba(139, 92, 246, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 80% 30%, rgba(217, 70, 239, 0.14) 0%, transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.12) 0%, transparent 50%);
+        }
+
+        .zen-glass {
+            background: rgba(27, 18, 46, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(168, 85, 247, 0.24);
+        }
+
+        .zen-glass-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .zen-glass-hover:hover {
+            border-color: rgba(168, 85, 247, 0.55);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        #orb-outer-ring, #orb-mid-ring, #orb-core {
+            transition: transform 0.95s linear, background 0.6s ease, box-shadow 0.6s ease;
+        }
+        #satellite-dot {
+            transition: top 0.95s linear, left 0.95s linear, background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #120C1F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #342459;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B5CF6;
+        }
+    </style>
+
+    <!-- Structured Data (Schema.org SoftwareApplication & FAQPage for Google SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "RespiZen - Breathing & Calm",
+          "alternateName": ["RespiZen", "RespiZen - Respiration & Calme", "RespiZen - Respiración y Calma"],
+          "operatingSystem": "Android",
+          "applicationCategory": "HealthApplication",
+          "description": "Cardiac coherence & guided breathing app. Free, private (no account required), and 100% customizable with second-by-second audio and visual cues.",
+          "inLanguage": ["en", "fr", "es", "it"],
+          "url": "https://play.google.com/store/apps/details?id=fr.appbuild71.respizen",
+          "installUrl": "https://play.google.com/store/apps/details?id=fr.appbuild71.respizen",
+          "softwareRequirements": "Android",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          "featureList": [
+            "Cardiac coherence & guided breathing exercises",
+            "Second-by-second audio tick and visual breathing animation",
+            "100% customizable inhale, hold, exhale, and session duration",
+            "100% private: no online account required, local storage only",
+            "Session history and monthly practice statistics"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is RespiZen completely free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, RespiZen is 100% free and gives you full access to customizable breathing phases, audio guidance, and practice statistics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to create an account to use RespiZen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. RespiZen requires no account and stores all your settings and session statistics locally on your Android device for complete privacy."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I practice with my eyes closed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! RespiZen features a gentle second-by-second audio tick and phase transition gongs so you can follow your breathing rhythm effortlessly without looking at the screen."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="nebula-bg antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header class="sticky top-0 z-50 zen-glass border-b border-purple-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Brand Logo & Name -->
+                <a href="#" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-purple-900 to-indigo-950 border border-purple-400/40 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6 text-purple-200 drop-shadow-[0_0_8px_rgba(192,132,252,0.8)]" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+                            <circle cx="32" cy="17" r="6.5"/>
+                            <path d="M32 26c-6.5 0-11 4.5-12.5 10.5l-4.5 7.5c-1.5 2.4.2 5.5 3 5.5h28c2.8 0 4.5-3.1 3-5.5l-4.5-7.5C43 30.5 38.5 26 32 26z"/>
+                            <ellipse cx="32" cy="51" rx="17" ry="4" opacity="0.75"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-display font-bold tracking-[0.2em] text-lg sm:text-xl bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent block leading-none">
+                            RESPIZEN
+                        </span>
+                        <span data-i18n="brandTagline" class="text-[10px] sm:text-xs tracking-[0.18em] text-purple-300/80 uppercase block mt-1">
+                            Breathing & Calm
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-purple-200/85">
+                    <a href="#video-showcase" data-i18n="navVideo" class="hover:text-white transition-colors">Presentation</a>
+                    <a href="#features" data-i18n="navFeatures" class="hover:text-white transition-colors">Features</a>
+                    <a href="#screens" data-i18n="navInterface" class="hover:text-white transition-colors">App Preview</a>
+                    <a href="#faq" data-i18n="navFaq" class="hover:text-white transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Right Controls: Language Switcher & Compact CTA -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <div role="group" aria-label="Language switcher" class="flex items-center bg-zen-bg/80 border border-purple-500/30 rounded-full p-1">
+                        <button onclick="chooseLanguage('en')" id="btn-lang-en" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all bg-purple-600 text-white shadow-sm" title="English">EN</button>
+                        <button onclick="chooseLanguage('fr')" id="btn-lang-fr" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-purple-300 hover:text-white" title="Français">FR</button>
+                        <button onclick="chooseLanguage('es')" id="btn-lang-es" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-purple-300 hover:text-white" title="Español">ES</button>
+                        <button onclick="chooseLanguage('it')" id="btn-lang-it" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-purple-300 hover:text-white" title="Italiano">IT</button>
+                    </div>
+
+                    <a href="https://play.google.com/store/apps/details?id=fr.appbuild71.respizen" 
+                       target="_blank" 
+                       rel="noopener"
+                       class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-lg shadow-purple-600/30 transition-all hover:scale-105">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                        <span data-i18n="navDownload">Google Play</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== HERO SECTION + LIVE INTERACTIVE BREATHING SIMULATOR ==================== -->
+        <section class="relative pt-10 pb-16 sm:pt-16 sm:pb-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Column: SEO H1, Value Prop, Google Play Badge & Trust Signals -->
+                    <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/80 border border-purple-500/35 text-purple-200 text-xs sm:text-sm font-medium">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span data-i18n="heroBadge">Free • No Account • 100% Customizable</span>
+                        </div>
+
+                        <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                            <span data-i18n="heroSubtitle">Respiration, Calme & Cohérence Cardiaque</span>
+                        </h1>
+
+                        <p data-i18n="heroShortDesc" class="text-lg sm:text-xl font-medium text-purple-200">
+                            Cardiac coherence & guided breathing. Free and 100% customizable.
+                        </p>
+
+                        <p data-i18n="heroLongDesc" class="text-sm sm:text-base text-purple-300/85 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            Whether you are looking for an anti-stress exercise, relaxation support, or a natural way to improve your sleep, choose your breathing rhythm, start your session, and let yourself be guided by a soothing visual animation and second-by-second sound cues.
+                        </p>
+
+                        <!-- Google Play CTA Button -->
+                        <div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="https://play.google.com/store/apps/details?id=fr.appbuild71.respizen" 
+                               target="_blank" 
+                               rel="noopener"
+                               class="inline-flex items-center gap-3.5 bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-700 hover:from-purple-500 hover:to-indigo-600 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-purple-600/30 transition-all hover:scale-105">
+                                <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                                </svg>
+                                <div class="text-left">
+                                    <span data-i18n="getItOn" class="block text-[10px] uppercase tracking-wider text-purple-200 leading-none">Get it on</span>
+                                    <span class="block text-lg font-extrabold tracking-tight leading-tight">Google Play</span>
+                                </div>
+                            </a>
+
+                            <a href="#video-showcase" 
+                               class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl zen-glass text-purple-200 hover:text-white hover:bg-purple-900/30 transition-all font-semibold text-sm">
+                                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span data-i18n="watchVideoBtn">Watch Presentation</span>
+                            </a>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-purple-300/80">
+                            <div class="flex items-center gap-2">
+                                <span class="text-purple-400 font-bold">✓</span> <span data-i18n="trustPrivacy">No Account Required</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-purple-400 font-bold">✓</span> <span data-i18n="trustAudio">Second-by-Second Audio</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-purple-400 font-bold">✓</span> <span data-i18n="trustFree">100% Free & Private</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Authentic Interactive RespiZen Session Simulator -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="w-full max-w-[360px] rounded-[2.4rem] bg-gradient-to-b from-[#160F26] to-[#120C1F] border-2 border-purple-500/35 p-4 sm:p-5 shadow-2xl shadow-purple-950/90 relative overflow-hidden">
+                            
+                            <!-- Authentic Top Header Bar inside Phone Mockup -->
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded-full bg-[#1F1536] border border-purple-400/40 flex items-center justify-center text-purple-300">
+                                        <svg class="w-4 h-4" viewBox="0 0 64 64" fill="currentColor">
+                                            <circle cx="32" cy="17" r="6.5"/>
+                                            <path d="M32 26c-6.5 0-11 4.5-12.5 10.5l-4.5 7.5c-1.5 2.4.2 5.5 3 5.5h28c2.8 0 4.5-3.1 3-5.5l-4.5-7.5C43 30.5 38.5 26 32 26z"/>
+                                            <ellipse cx="32" cy="51" rx="17" ry="4" opacity="0.75"/>
+                                        </svg>
+                                    </div>
+                                    <div class="text-left">
+                                        <span class="font-display font-semibold tracking-[0.22em] text-xs text-purple-100 block leading-none">RESPIZEN</span>
+                                        <span data-i18n="brandTagline" class="text-[8px] tracking-[0.15em] text-purple-300/70 uppercase block mt-0.5">BREATHING & CALM</span>
+                                    </div>
+                                </div>
+                                <span id="sim-countdown" class="font-mono font-semibold text-base text-purple-300">05:00</span>
+                            </div>
+
+                            <!-- Authentic Dual Sound Control Pills (Tick Volume & Gong Volume) -->
+                            <div class="grid grid-cols-2 gap-2.5 mb-2.5">
+                                <div class="flex items-center justify-between px-2.5 py-1.5 rounded-2xl bg-[#1B122E] border border-indigo-500/30 text-xs">
+                                    <span class="text-indigo-300" title="Tick sound">⏱️</span>
+                                    <button onclick="adjustVolume('tick', -1)" class="w-5 h-5 rounded-full border border-purple-400/40 text-purple-200 hover:bg-purple-600/40 flex items-center justify-center leading-none">-</button>
+                                    <span id="tick-vol-label" class="font-semibold text-indigo-200 text-[11px]">4/5</span>
+                                    <button onclick="adjustVolume('tick', 1)" class="w-5 h-5 rounded-full border border-purple-400/40 text-purple-200 hover:bg-purple-600/40 flex items-center justify-center leading-none">+</button>
+                                </div>
+                                <div class="flex items-center justify-between px-2.5 py-1.5 rounded-2xl bg-[#1B122E] border border-amber-500/30 text-xs">
+                                    <span class="text-amber-400" title="Gong sound">🔔</span>
+                                    <button onclick="adjustVolume('gong', -1)" class="w-5 h-5 rounded-full border border-purple-400/40 text-purple-200 hover:bg-purple-600/40 flex items-center justify-center leading-none">-</button>
+                                    <span id="gong-vol-label" class="font-semibold text-amber-300 text-[11px]">5/5</span>
+                                    <button onclick="adjustVolume('gong', 1)" class="w-5 h-5 rounded-full border border-purple-400/40 text-purple-200 hover:bg-purple-600/40 flex items-center justify-center leading-none">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Preset Selector Pills -->
+                            <div class="grid grid-cols-3 gap-1 bg-[#1B122E]/90 p-1 rounded-xl border border-purple-500/20 mb-2 text-[11px]">
+                                <button onclick="setSimPreset(4, 4, 4, 4, 5, 'box')" id="preset-box" class="sim-preset-btn py-1 px-1.5 rounded-lg font-medium bg-purple-600 text-white transition">
+                                    4-4-4-4 Box
+                                </button>
+                                <button onclick="setSimPreset(5, 0, 5, 0, 5, 'coherence')" id="preset-coherence" class="sim-preset-btn py-1 px-1.5 rounded-lg font-medium text-purple-300 hover:text-white transition">
+                                    5-5 Zen
+                                </button>
+                                <button onclick="setSimPreset(4, 7, 8, 0, 8, 'relax')" id="preset-relax" class="sim-preset-btn py-1 px-1.5 rounded-lg font-medium text-purple-300 hover:text-white transition">
+                                    4-7-8 Sleep
+                                </button>
+                            </div>
+
+                            <!-- Authentic Concentric Breathing Arena + 4-Sided Diffused Glowing Line Track -->
+                            <div class="relative w-60 h-60 mx-auto flex items-center justify-center my-1">
+                                <!-- Left Track (Inhale) -->
+                                <div id="track-left" class="absolute left-3 top-9 bottom-9 w-[2px] rounded-full bg-gradient-to-b from-transparent via-purple-400 to-transparent blur-[1.5px] opacity-35 transition-opacity"></div>
+
+                                <!-- Top Track (Hold after inhale) -->
+                                <div id="track-top" class="absolute top-3 left-9 right-9 h-[2px] rounded-full bg-gradient-to-r from-transparent via-fuchsia-400 to-transparent blur-[1.5px] opacity-35 transition-opacity"></div>
+
+                                <!-- Right Track (Exhale) -->
+                                <div id="track-right" class="absolute right-3 top-9 bottom-9 w-[2px] rounded-full bg-gradient-to-b from-transparent via-sky-400 to-transparent blur-[1.5px] opacity-35 transition-opacity"></div>
+
+                                <!-- Bottom Track (Hold after exhale) -->
+                                <div id="track-bottom" class="absolute bottom-3 left-9 right-9 h-[2px] rounded-full bg-gradient-to-r from-transparent via-fuchsia-400 to-transparent blur-[1.5px] opacity-35 transition-opacity"></div>
+
+                                <div id="satellite-dot" style="top: 204px; left: 13px;" class="absolute w-4 h-4 -ml-2 -mt-2 rounded-full bg-purple-400/30 border border-purple-300/60 flex items-center justify-center z-20">
+                                    <span class="w-2 h-2 rounded-full bg-white"></span>
+                                </div>
+
+                                <div id="orb-outer-ring" style="transform: scale(0.64);" class="w-48 h-48 rounded-full bg-purple-600/15 flex items-center justify-center">
+                                    <div id="orb-mid-ring" class="w-40 h-40 rounded-full bg-purple-500/25 flex items-center justify-center">
+                                        <div id="orb-core" 
+                                             style="background: radial-gradient(circle, #A855F7 0%, #7C3AED 70%, #4C1D95 100%); box-shadow: 0 0 35px rgba(168, 85, 247, 0.55);"
+                                             class="w-32 h-32 rounded-full flex flex-col items-center justify-center text-center p-3 select-none">
+                                            <span id="orb-phase-text" class="text-white font-medium text-lg tracking-wide drop-shadow">
+                                                Ready
+                                            </span>
+                                            <span id="orb-timer-text" class="text-purple-100/85 text-[11px] font-mono mt-0.5">
+                                                4s - 4s - 4s - 4s
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button id="sim-toggle-btn" onclick="toggleSimulator()" 
+                                    class="w-full mt-2 py-3 rounded-2xl font-semibold text-sm text-white bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-[#9333EA] hover:to-[#7E22CE] shadow-lg shadow-purple-600/30 transition-all">
+                                <span data-i18n="simStartBtn">Start the session</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== YOUTUBE PRESENTATION VIDEO SECTION ==================== -->
+        <section id="video-showcase" class="py-16 sm:py-24 border-t border-purple-900/30 bg-[#0e091d]/60">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+                    <span data-i18n="videoEyebrow" class="text-xs font-semibold uppercase tracking-[0.2em] text-purple-400">
+                        Video Overview
+                    </span>
+                    <h2 data-i18n="videoTitle" class="font-display text-2xl sm:text-4xl font-bold text-white">
+                        Discover RespiZen in Action
+                    </h2>
+                    <p data-i18n="videoDesc" class="text-purple-200/80 text-sm sm:text-base">
+                        Watch how easy it is to customize your breathing phases, follow the second-by-second sound cues, and track your serenity over time.
+                    </p>
+                </div>
+
+                <div class="zen-glass rounded-3xl p-2 sm:p-4 shadow-2xl shadow-purple-950/60">
+                    <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black">
+                        <iframe id="youtube-player"
+                                class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/q-48W1_F08U?rel=0"
+                                title="RespiZen - Breathing & Calm Official Presentation"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 px-2 text-sm">
+                    <a href="https://www.youtube.com/@Christophe-m7x" 
+                       target="_blank" 
+                       rel="noopener"
+                       class="inline-flex items-center gap-2.5 text-purple-200 hover:text-white transition-colors">
+                        <span class="w-8 h-8 rounded-full bg-red-600/20 border border-red-500/40 flex items-center justify-center text-red-400">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </span>
+                        <span data-i18n="youtubeChannelLink">Visit Official YouTube Channel (@Christophe-m7x)</span>
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=fr.appbuild71.respizen" 
+                       target="_blank" 
+                       rel="noopener"
+                       class="inline-flex items-center gap-2 font-semibold text-sky-300 hover:text-sky-200 transition-colors">
+                        <span data-i18n="downloadNowLink">Download Free on Google Play</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CORE FEATURES SECTION ==================== -->
+        <section id="features" class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                    <span data-i18n="featuresEyebrow" class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-400">
+                        Designed for Serenity
+                    </span>
+                    <h2 data-i18n="featuresTitle" class="font-display text-2xl sm:text-4xl font-bold text-white">
+                        Simple, Precise, and Respectful of Your Privacy
+                    </h2>
+                    <p data-i18n="featuresSubtitle" class="text-purple-200/80 text-base">
+                        RespiZen is built to focus on what truly matters: choose your rhythm, start your relaxation session, and breathe.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <article class="zen-glass zen-glass-hover rounded-3xl p-7 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-purple-600/25 border border-purple-400/30 flex items-center justify-center text-purple-300 mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <h3 data-i18n="feat1Title" class="font-display text-xl font-bold text-white mb-3">Precise Guidance, Second by Second</h3>
+                            <p data-i18n="feat1Desc" class="text-purple-200/80 text-sm sm:text-base leading-relaxed">
+                                RespiZen accompanies you at every moment of your breath. During inhalation and exhalation, a steady sound cue marks each second. Easily know where you are in your breathing cycle—even with your eyes closed—without constantly looking at the screen.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-purple-500/15 flex items-center gap-2 text-xs text-purple-300">
+                            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                            <span data-i18n="feat1Tag">Adjustable tick volume & phase transition gongs</span>
+                        </div>
+                    </article>
+
+                    <article class="zen-glass zen-glass-hover rounded-3xl p-7 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300 mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            </div>
+                            <h3 data-i18n="feat2Title" class="font-display text-xl font-bold text-white mb-3">Your Practice Remains Private</h3>
+                            <p data-i18n="feat2Desc" class="text-purple-200/80 text-sm sm:text-base leading-relaxed">
+                                RespiZen requires no account or registration. Your custom presets and session history are saved locally on your Android device. The app needs no online account to work, and your practice data is never stored on any external server.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-purple-500/15 flex items-center gap-2 text-xs text-sky-300">
+                            <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+                            <span data-i18n="feat2Tag">Zero sign-up • Offline ready • Local storage</span>
+                        </div>
+                    </article>
+
+                    <article class="zen-glass zen-glass-hover rounded-3xl p-7 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-pink-500/20 border border-pink-400/30 flex items-center justify-center text-pink-300 mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                            </div>
+                            <h3 data-i18n="feat3Title" class="font-display text-xl font-bold text-white mb-3">Fully Customizable Breathing Rhythms</h3>
+                            <p data-i18n="feat3Desc" class="text-purple-200/80 text-sm sm:text-base leading-relaxed mb-4">
+                                Tailor the exact rhythm that fits your needs by adjusting the duration of every single phase of your breathing exercises:
+                            </p>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-purple-100">
+                                <li class="flex items-center gap-2"><span class="text-purple-400">•</span> <span data-i18n="phaseInhale">Inhale duration</span></li>
+                                <li class="flex items-center gap-2"><span class="text-purple-400">•</span> <span data-i18n="phaseHoldFull">Hold after inhale (full lungs)</span></li>
+                                <li class="flex items-center gap-2"><span class="text-sky-400">•</span> <span data-i18n="phaseExhale">Exhale duration</span></li>
+                                <li class="flex items-center gap-2"><span class="text-sky-400">•</span> <span data-i18n="phaseHoldEmpty">Hold after exhale (empty lungs)</span></li>
+                                <li class="flex items-center gap-2 sm:col-span-2"><span class="text-pink-400">•</span> <span data-i18n="phaseTotal">Total session duration (minutes)</span></li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="zen-glass zen-glass-hover rounded-3xl p-7 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                            </div>
+                            <h3 data-i18n="feat4Title" class="font-display text-xl font-bold text-white mb-3">Track Your Well-Being Practice</h3>
+                            <p data-i18n="feat4Desc" class="text-purple-200/80 text-sm sm:text-base leading-relaxed">
+                                View the number of completed sessions, total practiced minutes, and clear monthly statistics to anchor your calm and mindfulness routine over the long term.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-purple-500/15 flex items-center gap-2 text-xs text-emerald-300">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <span data-i18n="feat4Tag">Monthly charts & daily consistency tracking</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== VISUAL APP INTERFACE SHOWCASE ==================== -->
+        <section id="screens" class="py-16 sm:py-24 border-t border-purple-900/30 bg-[#0e091d]/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                    <span data-i18n="screensEyebrow" class="text-xs font-semibold uppercase tracking-[0.2em] text-purple-400">
+                        Interface & Experience
+                    </span>
+                    <h2 data-i18n="screensTitle" class="font-display text-2xl sm:text-4xl font-bold text-white">
+                        Crafted for Calm, Night & Day
+                    </h2>
+                    <p data-i18n="screensDesc" class="text-purple-200/80 text-base">
+                        A soothing dark violet interface that prevents eye strain before sleep and keeps every control within thumb's reach.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Mockup 1 -->
+                    <div class="zen-glass rounded-[2rem] p-5 flex flex-col items-center">
+                        <div class="w-full bg-[#120C1F] rounded-2xl border border-purple-500/25 p-5 space-y-3.5">
+                            <div class="flex justify-between items-center text-xs">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded-full bg-[#1F1536] border border-purple-400/40 flex items-center justify-center text-[10px]">🧘</span>
+                                    <span class="font-display font-bold tracking-[0.2em] text-purple-200">RESPIZEN</span>
+                                </div>
+                                <span class="text-purple-400 font-semibold">5 min</span>
+                            </div>
+                            <div class="space-y-2 text-xs text-purple-100">
+                                <div class="py-2.5 px-3 rounded-xl bg-[#1B122E] border border-purple-500/35 flex items-center justify-center gap-2">
+                                    <span class="text-purple-400">📊</span> <span data-i18n="uiStats">Statistics</span>
+                                </div>
+                                <div class="py-2.5 px-3 rounded-xl bg-[#1B122E] border border-sky-500/40 flex items-center justify-center gap-2">
+                                    <span class="text-sky-400">〰️</span> <span data-i18n="uiMedia">Soundscape</span>
+                                </div>
+                                <div class="py-2.5 px-3 rounded-xl bg-[#1B122E] border border-purple-500/35 flex items-center justify-center gap-2">
+                                    <span class="text-indigo-400">⚙️</span> <span data-i18n="uiSettings">Settings</span>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-[#181029] border border-purple-500/25 text-center space-y-2.5">
+                                <div class="text-xs text-purple-200 flex items-center justify-center gap-1.5">
+                                    <span class="w-4 h-4 rounded-full bg-purple-500/30 text-purple-300 inline-flex items-center justify-center text-[9px]">⏸</span>
+                                    <span>4 sec</span>
+                                </div>
+                                <div class="flex items-center justify-around py-1">
+                                    <div class="text-purple-300 font-semibold text-sm flex flex-col items-center">
+                                        <span>↑</span>
+                                        <span class="text-white">4s</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-bold text-white leading-none">5</div>
+                                        <div class="text-[10px] text-purple-300 mt-1">minutes</div>
+                                        <div class="text-[10px] text-indigo-400 mt-0.5">⏱️ 🔔</div>
+                                    </div>
+                                    <div class="text-sky-400 font-semibold text-sm flex flex-col items-center">
+                                        <span>↓</span>
+                                        <span class="text-white">4s</span>
+                                    </div>
+                                </div>
+                                <div class="text-xs text-purple-200 flex items-center justify-center gap-1.5">
+                                    <span class="w-4 h-4 rounded-full bg-indigo-500/30 text-indigo-300 inline-flex items-center justify-center text-[9px]">⏸</span>
+                                    <span>4 sec</span>
+                                </div>
+                            </div>
+                            <div class="py-3 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-center text-xs font-semibold text-white shadow-md shadow-purple-600/30">
+                                <span data-i18n="uiStart">Start the session</span>
+                            </div>
+                        </div>
+                        <h3 data-i18n="screen1Title" class="font-display font-semibold text-white mt-5 text-lg">1. Instant Overview</h3>
+                        <p data-i18n="screen1Desc" class="text-xs text-purple-200/75 text-center mt-1">Check your breathing cycle and ambient soundscape at a glance.</p>
+                    </div>
+
+                    <!-- Mockup 2 -->
+                    <div class="zen-glass rounded-[2rem] p-5 flex flex-col items-center">
+                        <div class="w-full bg-[#120C1F] rounded-2xl border border-purple-500/25 p-5 space-y-2.5">
+                            <div class="flex justify-between items-center text-xs font-semibold text-purple-100 pb-1">
+                                <span data-i18n="uiSettings">⚙️ Settings</span>
+                                <span class="text-purple-400">✕</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-[11px]">
+                                <div class="p-2 rounded-xl bg-[#1B122E] border border-indigo-500/30 text-purple-200 flex items-center justify-between">
+                                    <span class="text-indigo-300" data-i18n="uiTick">Tick</span>
+                                    <span class="font-bold text-indigo-200">4/5</span>
+                                </div>
+                                <div class="p-2 rounded-xl bg-[#1B122E] border border-amber-500/30 text-purple-200 flex items-center justify-between">
+                                    <span class="text-amber-400" data-i18n="uiGong">Gong</span>
+                                    <span class="font-bold text-amber-300">5/5</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2 text-[11px]">
+                                <div class="p-2 rounded-xl bg-[#1B122E] border border-purple-500/25">
+                                    <div class="flex justify-between text-purple-100 mb-1">
+                                        <span data-i18n="uiInhale">↑ Inhale</span>
+                                        <span class="text-purple-400 font-semibold">5 sec</span>
+                                    </div>
+                                    <div class="w-full h-1.5 rounded-full bg-purple-950 overflow-hidden">
+                                        <div class="w-2/5 h-full bg-purple-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="p-2 rounded-xl bg-[#1B122E] border border-fuchsia-500/25">
+                                    <div class="flex justify-between text-purple-100 mb-1">
+                                        <span data-i18n="uiHoldFull">⏸ Hold (full lungs)</span>
+                                        <span class="text-fuchsia-400 font-semibold">0 sec</span>
+                                    </div>
+                                    <div class="w-full h-1.5 rounded-full bg-purple-950 overflow-hidden">
+                                        <div class="w-1 h-full bg-fuchsia-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="p-2 rounded-xl bg-[#1B122E] border border-sky-500/25">
+                                    <div class="flex justify-between text-purple-100 mb-1">
+                                        <span data-i18n="uiExhale">↓ Exhale</span>
+                                        <span class="text-sky-400 font-semibold">5 sec</span>
+                                    </div>
+                                    <div class="w-full h-1.5 rounded-full bg-sky-950 overflow-hidden">
+                                        <div class="w-2/5 h-full bg-sky-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="p-2 rounded-xl bg-[#1B122E] border border-indigo-500/25">
+                                    <div class="flex justify-between text-purple-100 mb-1">
+                                        <span data-i18n="uiHoldEmpty">⏸ Hold (empty lungs)</span>
+                                        <span class="text-indigo-400 font-semibold">0 sec</span>
+                                    </div>
+                                    <div class="w-full h-1.5 rounded-full bg-indigo-950 overflow-hidden">
+                                        <div class="w-1 h-full bg-indigo-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="p-2 rounded-xl bg-[#1B122E] border border-pink-500/25">
+                                    <div class="flex justify-between text-purple-100 mb-1">
+                                        <span data-i18n="uiDuration">⏱ Session duration</span>
+                                        <span class="text-pink-400 font-semibold">8 min</span>
+                                    </div>
+                                    <div class="w-full h-1.5 rounded-full bg-pink-950 overflow-hidden">
+                                        <div class="w-1/3 h-full bg-pink-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 data-i18n="screen2Title" class="font-display font-semibold text-white mt-5 text-lg">2. 100% Customizable</h3>
+                        <p data-i18n="screen2Desc" class="text-xs text-purple-200/75 text-center mt-1">Adjust every second of inhale, holds, exhale, and sound cues.</p>
+                    </div>
+
+                    <!-- Mockup 3 -->
+                    <div class="zen-glass rounded-[2rem] p-5 flex flex-col items-center">
+                        <div class="w-full bg-[#120C1F] rounded-2xl border border-purple-500/25 p-5 space-y-3.5">
+                            <div class="flex justify-between items-center text-xs font-semibold text-purple-100">
+                                <span data-i18n="uiStats">📊 Statistics</span>
+                                <span class="text-purple-400">✕</span>
+                            </div>
+                            <div class="grid grid-cols-2 bg-[#1B122E] p-1 rounded-xl text-[11px] font-medium">
+                                <div data-i18n="uiTabSessions" class="py-1.5 rounded-lg bg-[#2E1F4D] text-white text-center">Sessions</div>
+                                <div data-i18n="uiTabTime" class="py-1.5 text-purple-300/75 text-center">Time practiced</div>
+                            </div>
+                            <div class="flex items-center justify-between px-3 py-1.5 rounded-xl bg-[#1B122E] text-xs text-purple-100 font-medium">
+                                <span class="text-purple-400">‹</span>
+                                <span data-i18n="uiMonthLabel">October 2026</span>
+                                <span class="text-purple-400">›</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5 text-center">
+                                <div class="p-2.5 rounded-xl bg-[#1B122E] border border-purple-500/30">
+                                    <div class="text-xl font-bold text-purple-300">13</div>
+                                    <div data-i18n="uiSessionsMonth" class="text-[10px] text-purple-200/75">Sessions this month</div>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-[#1B122E] border border-sky-500/30">
+                                    <div class="text-xl font-bold text-sky-400">5 / 31</div>
+                                    <div data-i18n="uiDaysPracticed" class="text-[10px] text-purple-200/75">Days practiced</div>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-[#181029] border border-purple-500/20">
+                                <div class="flex items-end justify-between h-24 gap-2 pt-3 px-2">
+                                    <div class="w-full flex flex-col items-center gap-1">
+                                        <span class="text-[9px] text-purple-300">2</span>
+                                        <div class="w-full bg-purple-400 rounded-t-md h-10"></div>
+                                    </div>
+                                    <div class="w-full flex flex-col items-center gap-1">
+                                        <span class="text-[9px] text-purple-300">2</span>
+                                        <div class="w-full bg-purple-400 rounded-t-md h-10"></div>
+                                    </div>
+                                    <div class="w-full flex flex-col items-center gap-1">
+                                        <span class="text-[9px] text-purple-300">4</span>
+                                        <div class="w-full bg-purple-400 rounded-t-md h-20"></div>
+                                    </div>
+                                    <div class="w-full flex flex-col items-center gap-1">
+                                        <span class="text-[9px] text-purple-300">3</span>
+                                        <div class="w-full bg-purple-400 rounded-t-md h-14"></div>
+                                    </div>
+                                    <div class="w-full flex flex-col items-center gap-1">
+                                        <span class="text-[9px] text-purple-300">2</span>
+                                        <div class="w-full bg-purple-400 rounded-t-md h-10"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between text-[9px] text-purple-400/75 mt-1.5 px-2 font-mono">
+                                    <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                                </div>
+                            </div>
+                            <div class="py-1.5 rounded-xl bg-purple-950/70 border border-purple-500/25 text-center text-[11px] text-purple-200">
+                                <span data-i18n="uiLocalData">🔒 Stored locally on your device</span>
+                            </div>
+                        </div>
+                        <h3 data-i18n="screen3Title" class="font-display font-semibold text-white mt-5 text-lg">3. Track Your Progress</h3>
+                        <p data-i18n="screen3Desc" class="text-xs text-purple-200/75 text-center mt-1">Monitor sessions and practiced minutes month after month.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== POPULAR BREATHING TECHNIQUES ==================== -->
+        <section class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                    <span data-i18n="methodsEyebrow" class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-400">
+                        Daily Rituals
+                    </span>
+                    <h2 data-i18n="methodsTitle" class="font-display text-2xl sm:text-4xl font-bold text-white">
+                        Adapt RespiZen to Every Moment of Your Day
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="zen-glass rounded-3xl p-6 space-y-3">
+                        <div class="inline-block px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold">5s — 5s</div>
+                        <h3 data-i18n="method1Title" class="font-display text-lg font-bold text-white">Cardiac Coherence (Anti-Stress)</h3>
+                        <p data-i18n="method1Desc" class="text-sm text-purple-200/80 leading-relaxed">
+                            Inhale for 5 seconds, exhale for 5 seconds (6 breaths per minute) for 5 minutes to balance your nervous system and rapidly lower cortisol and daily stress.
+                        </p>
+                    </div>
+
+                    <div class="zen-glass rounded-3xl p-6 space-y-3">
+                        <div class="inline-block px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold">4s — 7s — 8s</div>
+                        <h3 data-i18n="method2Title" class="font-display text-lg font-bold text-white">4-7-8 Deep Relaxation & Sleep</h3>
+                        <p data-i18n="method2Desc" class="text-sm text-purple-200/80 leading-relaxed">
+                            Inhale for 4 seconds, hold gently for 7 seconds, and exhale slowly for 8 seconds. Ideal before bedtime to calm racing thoughts and fall asleep faster.
+                        </p>
+                    </div>
+
+                    <div class="zen-glass rounded-3xl p-6 space-y-3">
+                        <div class="inline-block px-3 py-1 rounded-full bg-pink-500/20 text-pink-300 text-xs font-bold">4s — 4s — 4s — 4s</div>
+                        <h3 data-i18n="method3Title" class="font-display text-lg font-bold text-white">Square / Box Breathing (Focus)</h3>
+                        <p data-i18n="method3Desc" class="text-sm text-purple-200/80 leading-relaxed">
+                            Equal phases of inhale, hold, exhale, and empty pause. Used by athletes and professionals to regain mental clarity, composure, and focus under pressure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FAQ SECTION ==================== -->
+        <section id="faq" class="py-16 sm:py-20 border-t border-purple-900/30 bg-[#0e091d]/60">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 data-i18n="faqTitle" class="font-display text-2xl sm:text-3xl font-bold text-white">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <details class="zen-glass rounded-2xl p-5 group" open>
+                        <summary class="font-semibold text-white cursor-pointer flex justify-between items-center list-none">
+                            <span data-i18n="faq1Q">Is RespiZen really free?</span>
+                            <span class="text-purple-400 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p data-i18n="faq1A" class="mt-3 text-sm text-purple-200/80 leading-relaxed">
+                            Yes! RespiZen is completely free to download and use on Android. You can customize all breathing phases, audio ticks, and access your statistics freely.
+                        </p>
+                    </details>
+
+                    <details class="zen-glass rounded-2xl p-5 group">
+                        <summary class="font-semibold text-white cursor-pointer flex justify-between items-center list-none">
+                            <span data-i18n="faq2Q">Do I need an internet connection or an account?</span>
+                            <span class="text-purple-400 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p data-i18n="faq2A" class="mt-3 text-sm text-purple-200/80 leading-relaxed">
+                            No account is needed and RespiZen works offline. All your preferences and session history remain stored locally on your device—nothing is sent to external servers.
+                        </p>
+                    </details>
+
+                    <details class="zen-glass rounded-2xl p-5 group">
+                        <summary class="font-semibold text-white cursor-pointer flex justify-between items-center list-none">
+                            <span data-i18n="faq3Q">Can I practice without looking at my phone screen?</span>
+                            <span class="text-purple-400 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p data-i18n="faq3A" class="mt-3 text-sm text-purple-200/80 leading-relaxed">
+                            Absolutely. RespiZen emits a gentle tick every second during inhale and exhale phases, along with distinct gongs when switching phases, allowing you to keep your eyes closed.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FINAL DOWNLOAD CTA BANNER ==================== -->
+        <section class="py-16 sm:py-24">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="rounded-[2.5rem] bg-gradient-to-br from-purple-900/70 via-[#1d123b] to-indigo-950/80 border border-purple-400/30 p-8 sm:p-14 text-center shadow-2xl shadow-purple-900/40 relative overflow-hidden">
+                    <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+                        <h2 data-i18n="ctaTitle" class="font-display text-2xl sm:text-4xl font-bold text-white">Start Your First Calm Session Today</h2>
+                        <p data-i18n="ctaDesc" class="text-purple-200/90 text-base sm:text-lg">
+                            Download RespiZen - Breathing & Calm for free on Google Play and bring simple, guided cardiac coherence into your daily routine.
+                        </p>
+                        <div class="pt-2 flex justify-center">
+                            <a href="https://play.google.com/store/apps/details?id=fr.appbuild71.respizen" 
+                               target="_blank" 
+                               rel="noopener"
+                               class="inline-flex items-center gap-3.5 bg-white text-zen-bg hover:bg-purple-50 font-bold px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105">
+                                <svg class="w-7 h-7 fill-purple-700" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                                <div class="text-left">
+                                    <span data-i18n="getItOn" class="block text-[10px] uppercase tracking-wider text-purple-800 leading-none">Get it on</span>
+                                    <span class="block text-lg font-extrabold tracking-tight leading-tight">Google Play</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="border-t border-purple-900/40 py-10 text-sm text-purple-300/75">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="font-display font-bold tracking-widest text-white">RESPIZEN</span>
+                <span>•</span>
+                <span data-i18n="footerTagline">Cardiac Coherence & Guided Breathing</span>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-6">
+                <a href="https://play.google.com/store/apps/details?id=fr.appbuild71.respizen" target="_blank" rel="external noopener" class="hover:text-white transition-colors">Google Play Store</a>
+                <a href="https://www.youtube.com/@Christophe-m7x" target="_blank" rel="noopener" class="hover:text-white transition-colors">YouTube (@Christophe-m7x)</a>
+                <button onclick="openPrivacyModal()" data-i18n="footerPrivacyBtn" class="text-purple-300 hover:text-white underline decoration-purple-500/50 underline-offset-4 transition-colors">Privacy Policy (100% Local Data)</button>
+            </div>
+
+            <div class="text-xs text-purple-400/60">
+                © <span id="year"></span> AppBuild71 — RespiZen
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== PRIVACY POLICY MODAL ==================== -->
+    <div id="privacy-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4" role="dialog" aria-modal="true">
+        <div class="zen-glass max-w-lg w-full rounded-3xl p-6 sm:p-8 space-y-4 border border-purple-400/40 shadow-2xl">
+            <div class="flex items-center justify-between">
+                <h3 data-i18n="privacyModalTitle" class="font-display text-xl font-bold text-white">Privacy Policy — RespiZen</h3>
+                <button onclick="closePrivacyModal()" class="w-8 h-8 rounded-full bg-purple-950 text-purple-300 hover:text-white flex items-center justify-center">✕</button>
+            </div>
+            <p data-i18n="privacyModalBody1" class="text-sm text-purple-200/85 leading-relaxed">
+                RespiZen is built with a strict privacy-by-design approach. The application does not require any user account, login, or personal information to function.
+            </p>
+            <p data-i18n="privacyModalBody2" class="text-sm text-purple-200/85 leading-relaxed">
+                All your custom breathing rhythms, audio settings, and session statistics are stored exclusively locally on your Android device. No practice data is ever transmitted to or stored on any RespiZen server.
+            </p>
+            <div class="pt-2 flex justify-end">
+                <button onclick="closePrivacyModal()" data-i18n="privacyModalClose" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function openPrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closePrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        const translations = {
+            en: {
+                metaTitle: "RespiZen - Breathing & Calm | Cardiac Coherence & Guided Breathing App",
+                metaDesc: "RespiZen is a simple, free, and 100% customizable cardiac coherence and guided breathing app for Android. Anti-stress, relaxation, sleep aid with second-by-second cues.",
+                youtubeId: "q-48W1_F08U",
+                brandTagline: "Breathing & Calm",
+                navVideo: "Presentation",
+                navFeatures: "Features",
+                navInterface: "App Preview",
+                navFaq: "FAQ",
+                navDownload: "Google Play",
+                heroBadge: "Free • No Account • 100% Customizable",
+                heroSubtitle: "Breathing & Calm",
+                heroShortDesc: "Cardiac coherence & guided breathing. Free and 100% customizable.",
+                heroLongDesc: "Whether you are looking for an anti-stress exercise, relaxation support, or a natural way to improve your sleep, choose your breathing rhythm, start your session, and let yourself be guided by a soothing visual animation and second-by-second sound cues.",
+                getItOn: "Get it on",
+                watchVideoBtn: "Watch Presentation",
+                trustPrivacy: "No Account",
+                trustAudio: "1s Audio Tick",
+                trustFree: "100% Free",
+                simStartBtn: "Start the session",
+                simStopBtn: "Stop session",
+                phaseReady: "Ready",
+                phaseInhaleLabel: "Inhale",
+                phaseHoldLabel: "Hold",
+                phaseExhaleLabel: "Exhale",
+                videoEyebrow: "Video Overview",
+                videoTitle: "Discover RespiZen in Action",
+                videoDesc: "Watch how easy it is to customize your breathing phases, follow the second-by-second sound cues, and track your serenity over time.",
+                youtubeChannelLink: "Visit Official YouTube Channel (@Christophe-m7x)",
+                downloadNowLink: "Download Free on Google Play",
+                featuresEyebrow: "Designed for Serenity",
+                featuresTitle: "Simple, Precise, and Respectful of Your Privacy",
+                featuresSubtitle: "RespiZen is built to focus on what truly matters: choose your rhythm, start your relaxation session, and breathe.",
+                feat1Title: "Precise Guidance, Second by Second",
+                feat1Desc: "RespiZen accompanies you at every moment of your breath. During inhalation and exhalation, a steady sound cue marks each second. Easily know where you are in your breathing cycle—even with your eyes closed—without constantly looking at the screen.",
+                feat1Tag: "Adjustable tick volume & phase transition gongs",
+                feat2Title: "Your Practice Remains Private",
+                feat2Desc: "RespiZen requires no account or registration. Your custom presets and session history are saved locally on your Android device. The app needs no online account to work, and your practice data is never stored on any external server.",
+                feat2Tag: "Zero sign-up • Offline ready • Local storage",
+                feat3Title: "Fully Customizable Breathing Rhythms",
+                feat3Desc: "Tailor the exact rhythm that fits your needs by adjusting the duration of every single phase of your breathing exercises:",
+                phaseInhale: "Inhale duration",
+                phaseHoldFull: "Hold after inhale",
+                phaseExhale: "Exhale duration",
+                phaseHoldEmpty: "Hold after exhale",
+                phaseTotal: "Total session duration",
+                feat4Title: "Track Your Well-Being Practice",
+                feat4Desc: "View the number of completed sessions, total practiced minutes, and clear monthly statistics to anchor your calm and mindfulness routine over the long term.",
+                feat4Tag: "Monthly charts & daily consistency tracking",
+                screensEyebrow: "Interface & Experience",
+                screensTitle: "Crafted for Calm, Night & Day",
+                screensDesc: "A soothing dark violet interface that prevents eye strain before sleep and keeps every control within thumb's reach.",
+                uiStats: "Statistics",
+                uiMedia: "Soundscape",
+                uiSettings: "Settings",
+                uiStart: "Start the session",
+                uiTick: "Tick seconds",
+                uiGong: "Breath gong",
+                uiInhale: "↑ Inhale",
+                uiHoldFull: "⏸ Hold (full lungs)",
+                uiExhale: "↓ Exhale",
+                uiHoldEmpty: "⏸ Hold (empty lungs)",
+                uiDuration: "⏱ Session duration",
+                uiTabSessions: "Sessions",
+                uiTabTime: "Time practiced",
+                uiMonthLabel: "October 2026",
+                uiSessionsMonth: "Sessions this month",
+                uiDaysPracticed: "Days practiced",
+                uiLocalData: "🔒 Stored locally on your device",
+                screen1Title: "1. Instant Overview",
+                screen1Desc: "Check your breathing cycle and ambient soundscape at a glance.",
+                screen2Title: "2. 100% Customizable",
+                screen2Desc: "Adjust every second of inhale, holds, exhale, and sound cues.",
+                screen3Title: "3. Track Your Progress",
+                screen3Desc: "Monitor sessions and practiced minutes month after month.",
+                methodsEyebrow: "Daily Rituals",
+                methodsTitle: "Adapt RespiZen to Every Moment of Your Day",
+                method1Title: "Cardiac Coherence (Anti-Stress)",
+                method1Desc: "Inhale for 5 seconds, exhale for 5 seconds (6 breaths per minute) for 5 minutes to balance your nervous system and rapidly lower cortisol and daily stress.",
+                method2Title: "4-7-8 Deep Relaxation & Sleep",
+                method2Desc: "Inhale for 4 seconds, hold gently for 7 seconds, and exhale slowly for 8 seconds. Ideal before bedtime to calm racing thoughts and fall asleep faster.",
+                method3Title: "Square / Box Breathing (Focus)",
+                method3Desc: "Equal phases of inhale, hold, exhale, and empty pause. Used by athletes and professionals to regain mental clarity, composure, and focus under pressure.",
+                faqTitle: "Frequently Asked Questions",
+                faq1Q: "Is RespiZen really free?",
+                faq1A: "Yes! RespiZen is completely free to download and use on Android. You can customize all breathing phases, audio ticks, and access your statistics freely.",
+                faq2Q: "Do I need an internet connection or an account?",
+                faq2A: "No account is needed and RespiZen works offline. All your preferences and session history remain stored locally on your device—nothing is sent to external servers.",
+                faq3Q: "Can I practice without looking at my phone screen?",
+                faq3A: "Absolutely. RespiZen emits a gentle tick every second during inhale and exhale phases, along with distinct gongs when switching phases, allowing you to keep your eyes closed.",
+                ctaTitle: "Start Your First Calm Session Today",
+                ctaDesc: "Download RespiZen - Breathing & Calm for free on Google Play and bring simple, guided cardiac coherence into your daily routine.",
+                footerTagline: "Cardiac Coherence & Guided Breathing",
+                footerPrivacyBtn: "Privacy Policy (100% Local Data)",
+                privacyModalTitle: "Privacy Policy — RespiZen",
+                privacyModalBody1: "RespiZen is built with a strict privacy-by-design approach. The application does not require any user account, login, or personal information to function.",
+                privacyModalBody2: "All your custom breathing rhythms, audio settings, and session statistics are stored exclusively locally on your Android device. No practice data is ever transmitted to or stored on any RespiZen server.",
+                privacyModalClose: "Close"
+            },
+            fr: {
+                metaTitle: "RespiZen - Respiration & Calme | Cohérence Cardiaque & Respiration Guidée",
+                metaDesc: "RespiZen est une application de cohérence cardiaque et de respiration guidée, simple, gratuite et 100% personnalisable. Anti-stress, relaxation et sommeil sans création de compte.",
+                youtubeId: "4kAwFyewFz4",
+                brandTagline: "Souffle & Sérénité",
+                navVideo: "Présentation",
+                navFeatures: "Fonctionnalités",
+                navInterface: "Aperçu",
+                navFaq: "FAQ",
+                navDownload: "Google Play",
+                heroBadge: "Gratuit • Sans compte • 100% Personnalisable",
+                heroSubtitle: "Respiration, Calme & Cohérence Cardiaque",
+                heroShortDesc: "Cohérence cardiaque et respiration guidée. Gratuite et 100 % personnalisable.",
+                heroLongDesc: "Que vous cherchiez un exercice anti-stress, une aide à la relaxation ou un moyen d'améliorer votre sommeil, choisissez votre rythme de respiration, lancez votre séance et laissez-vous guider par une animation visuelle et des repères sonores.",
+                getItOn: "Disponible sur",
+                watchVideoBtn: "Voir la vidéo",
+                trustPrivacy: "Sans compte",
+                trustAudio: "Tic sonore 1s",
+                trustFree: "100% Gratuit",
+                simStartBtn: "Démarrer la séance",
+                simStopBtn: "Arrêter la séance",
+                phaseReady: "Prêt",
+                phaseInhaleLabel: "Inspirer",
+                phaseHoldLabel: "Bloquer",
+                phaseExhaleLabel: "Expirer",
+                videoEyebrow: "Vidéo de présentation",
+                videoTitle: "Découvrez RespiZen en vidéo",
+                videoDesc: "Visualisez comment personnaliser vos phases de respiration, suivre les repères sonores seconde par seconde et consulter vos statistiques.",
+                youtubeChannelLink: "Voir la chaîne YouTube officielle (@Christophe-m7x)",
+                downloadNowLink: "Télécharger gratuitement sur Google Play",
+                featuresEyebrow: "Conçue pour l'essentiel",
+                featuresTitle: "Simple, Précise et Respectueuse de votre Vie Privée",
+                featuresSubtitle: "RespiZen est conçue pour aller à l'essentiel : choisissez votre rythme, démarrez votre séance de relaxation et respirez.",
+                feat1Title: "Un repère précis, seconde après seconde",
+                feat1Desc: "RespiZen vous accompagne à chaque instant de votre respiration. Pendant l'inspiration et l'expiration, un signal régulier marque chaque seconde pour savoir facilement où vous en êtes, sans avoir besoin de regarder constamment l'écran.",
+                feat1Tag: "Volume du tic et gong de transition réglables",
+                feat2Title: "Votre pratique reste privée",
+                feat2Desc: "RespiZen ne nécessite aucun compte. Vos réglages et votre historique de séances sont enregistrés localement sur votre appareil. Vos données de pratique ne sont stockées sur aucun serveur externe.",
+                feat2Tag: "Aucune inscription • Hors-ligne • Stockage local",
+                feat3Title: "Une respiration totalement personnalisable",
+                feat3Desc: "Définissez le rythme qui vous convient en réglant la durée de chaque phase pour vos exercices de respiration :",
+                phaseInhale: "Inspiration",
+                phaseHoldFull: "Pause après l'inspiration",
+                phaseExhale: "Expiration",
+                phaseHoldEmpty: "Pause après l'expiration",
+                phaseTotal: "Durée totale de la séance",
+                feat4Title: "Suivez votre pratique au quotidien",
+                feat4Desc: "Consultez le nombre de séances réalisées, le temps pratiqué et vos statistiques mensuelles pour ancrer votre bien-être dans la durée.",
+                feat4Tag: "Graphiques mensuels et suivi de régularité",
+                screensEyebrow: "Interface & Ergonomie",
+                screensTitle: "Pensée pour le Calme, de Jour comme de Nuit",
+                screensDesc: "Une interface sombre aux teintes violettes apaisantes pour reposer vos yeux avant le sommeil et accéder à vos réglages en un geste.",
+                uiStats: "Statistiques",
+                uiMedia: "Amb. sonore",
+                uiSettings: "Paramètres",
+                uiStart: "Démarrer la séance",
+                uiTick: "Tic secondes",
+                uiGong: "Gong respiration",
+                uiInhale: "↑ Inspiration",
+                uiHoldFull: "⏸ Pause (poumons pleins)",
+                uiExhale: "↓ Expiration",
+                uiHoldEmpty: "⏸ Pause (poumons vides)",
+                uiDuration: "⏱ Durée de la séance",
+                uiTabSessions: "Séances",
+                uiTabTime: "Temps pratiqué",
+                uiMonthLabel: "Octobre 2026",
+                uiSessionsMonth: "Séances ce mois",
+                uiDaysPracticed: "Jours pratiqués",
+                uiLocalData: "🔒 Enregistré localement sur votre appareil",
+                screen1Title: "1. Vue d'ensemble immédiate",
+                screen1Desc: "Vérifiez votre rythme et votre ambiance sonore en un coup d'œil.",
+                screen2Title: "2. 100% Personnalisable",
+                screen2Desc: "Ajustez chaque seconde d'inspiration, de pause et d'expiration.",
+                screen3Title: "3. Suivez vos progrès",
+                screen3Desc: "Visualisez vos séances et votre temps pratiqué mois après mois.",
+                methodsEyebrow: "Rituels Bien-être",
+                methodsTitle: "Adaptez RespiZen à chaque moment de votre journée",
+                method1Title: "Cohérence Cardiaque (Anti-stress)",
+                method1Desc: "Inspirez 5 secondes, expirez 5 secondes (6 respirations/minute) pendant 5 minutes pour apaiser le système nerveux et réduire le stress.",
+                method2Title: "Respiration 4-7-8 (Sommeil & Détente)",
+                method2Desc: "Inspirez 4 secondes, bloquez 7 secondes, expirez lentement sur 8 secondes. Idéal le soir pour calmer le mental et faciliter l'endormissement.",
+                method3Title: "Respiration Carrée (Concentration)",
+                method3Desc: "Quatre phases égales (inspiration, pause, expiration, pause) pour retrouver calme, clarté mentale et concentration avant un moment important.",
+                faqTitle: "Questions Fréquentes",
+                faq1Q: "L'application RespiZen est-elle vraiment gratuite ?",
+                faq1A: "Oui ! RespiZen est 100 % gratuite sur Android. Vous pouvez personnaliser toutes vos phases de respiration, les repères sonores et suivre vos statistiques librement.",
+                faq2Q: "Faut-il créer un compte ou avoir Internet ?",
+                faq2A: "Non, aucun compte n'est requis et l'application fonctionne hors ligne. Vos réglages et votre historique restent enregistrés uniquement sur votre téléphone.",
+                faq3Q: "Peut-on pratiquer les yeux fermés sans regarder l'écran ?",
+                faq3A: "Tout à fait. Un léger signal sonore marque chaque seconde pendant l'inspiration et l'expiration, accompagné d'un gong à chaque changement de phase.",
+                ctaTitle: "Commencez votre première séance de calme",
+                ctaDesc: "Téléchargez gratuitement RespiZen sur Google Play et intégrez la cohérence cardiaque simplement dans votre quotidien.",
+                footerTagline: "Cohérence Cardiaque & Respiration Guidée",
+                footerPrivacyBtn: "Politique de confidentialité (Données 100% locales)",
+                privacyModalTitle: "Politique de confidentialité — RespiZen",
+                privacyModalBody1: "RespiZen est conçue dans le strict respect de votre vie privée. L'application ne nécessite aucun compte utilisateur, aucune inscription ni aucune donnée personnelle.",
+                privacyModalBody2: "Tous vos réglages de respiration, paramètres sonores et statistiques de séances sont enregistrés uniquement en local sur votre appareil Android. Aucune donnée n'est transmise à un serveur externe.",
+                privacyModalClose: "Fermer"
+            },
+            es: {
+                metaTitle: "RespiZen - Respiración y Calma | Coherencia Cardíaca y Respiración Guiada",
+                metaDesc: "RespiZen es una aplicación de coherencia cardíaca y respiración guiada, sencilla, gratuita y 100% personalizable para Android. Antiestrés, relajación y sueño sin crear cuenta.",
+                youtubeId: "XxuhO_J2G5w",
+                brandTagline: "Respiración y Serenidad",
+                navVideo: "Presentación",
+                navFeatures: "Funciones",
+                navInterface: "Vista previa",
+                navFaq: "FAQ",
+                navDownload: "Google Play",
+                heroBadge: "Gratis • Sin cuenta • 100% Personalizable",
+                heroSubtitle: "Respiración, Calma y Coherencia Cardíaca",
+                heroShortDesc: "Coherencia cardíaca y respiración guiada. Gratuita y 100 % personalizable.",
+                heroLongDesc: "Ya sea que busques un ejercicio antiestrés, ayuda para relajarte o mejorar tu sueño, elige tu ritmo de respiración, inicia tu sesión y déjate guiar por una animación visual y señales sonoras segundo a segundo.",
+                getItOn: "Disponible en",
+                watchVideoBtn: "Ver presentación",
+                trustPrivacy: "Sin cuenta",
+                trustAudio: "Señal cada 1s",
+                trustFree: "100% Gratis",
+                simStartBtn: "Iniciar la sesión",
+                simStopBtn: "Detener la sesión",
+                phaseReady: "Listo",
+                phaseInhaleLabel: "Inhalar",
+                phaseHoldLabel: "Mantener",
+                phaseExhaleLabel: "Exhalar",
+                videoEyebrow: "Vídeo de presentación",
+                videoTitle: "Descubre RespiZen en acción",
+                videoDesc: "Mira lo fácil que es personalizar las fases de respiración, seguir las señales sonoras segundo a segundo y consultar tus estadísticas.",
+                youtubeChannelLink: "Visitar el canal oficial de YouTube (@Christophe-m7x)",
+                downloadNowLink: "Descargar gratis en Google Play",
+                featuresEyebrow: "Diseñada para la serenidad",
+                featuresTitle: "Sencilla, Precisa y Respetuosa con tu Privacidad",
+                featuresSubtitle: "RespiZen está diseñada para ir a lo esencial: elige tu ritmo, inicia tu sesión de relajación y respira.",
+                feat1Title: "Una guía precisa, segundo a segundo",
+                feat1Desc: "RespiZen te acompaña en cada instante de tu respiración. Durante la inhalación y la exhalación, una señal regular marca cada segundo para saber exactamente en qué punto estás, sin tener que mirar la pantalla.",
+                feat1Tag: "Volumen de tic y gong de transición ajustables",
+                feat2Title: "Tu práctica sigue siendo privada",
+                feat2Desc: "RespiZen no requiere ninguna cuenta. Tus ajustes y tu historial de sesiones se guardan localmente en tu dispositivo. Tus datos nunca se almacenan en servidores externos.",
+                feat2Tag: "Sin registro • Funciona sin conexión • Datos locales",
+                feat3Title: "Respiración totalmente personalizable",
+                feat3Desc: "Define el ritmo que mejor se adapte a ti ajustando la duración de cada fase de tus ejercicios de respiración:",
+                phaseInhale: "Inhalación",
+                phaseHoldFull: "Pausa tras inhalar",
+                phaseExhale: "Exhalación",
+                phaseHoldEmpty: "Pausa tras exhalar",
+                phaseTotal: "Duración total de la sesión",
+                feat4Title: "Sigue tu práctica diaria",
+                feat4Desc: "Consulta el número de sesiones realizadas, el tiempo practicado y tus estadísticas mensuales para consolidar tu bienestar a largo plazo.",
+                feat4Tag: "Gráficos mensuales y seguimiento constante",
+                screensEyebrow: "Interfaz y Experiencia",
+                screensTitle: "Creada para la Calma, de Día y de Noche",
+                screensDesc: "Una interfaz oscura en tonos violeta relajantes para descansar la vista antes de dormir y controlar todo con un toque.",
+                uiStats: "Estadísticas",
+                uiMedia: "Amb. sonora",
+                uiSettings: "Ajustes",
+                uiStart: "Iniciar la sesión",
+                uiTick: "Tic segundos",
+                uiGong: "Gong respiración",
+                uiInhale: "↑ Inhalar",
+                uiHoldFull: "⏸ Pausa (pulmones llenos)",
+                uiExhale: "↓ Exhalar",
+                uiHoldEmpty: "⏸ Pausa (pulmones vacíos)",
+                uiDuration: "⏱ Duración de sesión",
+                uiTabSessions: "Sesiones",
+                uiTabTime: "Tiempo practicado",
+                uiMonthLabel: "Octubre 2026",
+                uiSessionsMonth: "Sesiones este mes",
+                uiDaysPracticed: "Días practicados",
+                uiLocalData: "🔒 Guardado localmente en tu dispositivo",
+                screen1Title: "1. Vista general al instante",
+                screen1Desc: "Comprueba tu ritmo y ambiente sonoro de un vistazo.",
+                screen2Title: "2. 100% Personalizable",
+                screen2Desc: "Ajusta cada segundo de inhalación, pausas, exhalación y sonido.",
+                screen3Title: "3. Sigue tu progreso",
+                screen3Desc: "Visualiza tus sesiones y minutos practicados mes a mes.",
+                methodsEyebrow: "Rituales Diarios",
+                methodsTitle: "Adapta RespiZen a cada momento del día",
+                method1Title: "Coherencia Cardíaca (Antiestrés)",
+                method1Desc: "Inhala 5 segundos, exhala 5 segundos (6 respiraciones/minuto) durante 5 minutos para equilibrar el sistema nervioso y reducir el estrés.",
+                method2Title: "Respiración 4-7-8 (Sueño y Relajación)",
+                method2Desc: "Inhala 4 segundos, mantén 7 segundos y exhala suavemente en 8 segundos. Ideal antes de dormir para calmar la mente.",
+                method3Title: "Respiración Cuadrada (Concentración)",
+                method3Desc: "Cuatro fases iguales (inhalar, mantener, exhalar, pausa) para recuperar claridad mental y concentración.",
+                faqTitle: "Preguntas Frecuentes",
+                faq1Q: "¿Es RespiZen realmente gratuita?",
+                faq1A: "¡Sí! RespiZen es completamente gratuita en Android. Puedes personalizar todas las fases de respiración, los sonidos y consultar tus estadísticas.",
+                faq2Q: "¿Necesito crear una cuenta o tener Internet?",
+                faq2A: "No se requiere cuenta y funciona sin conexión. Todos tus ajustes e historial permanecen guardados localmente en tu teléfono.",
+                faq3Q: "¿Puedo practicar con los ojos cerrados sin mirar la pantalla?",
+                faq3A: "Por supuesto. RespiZen emite un suave tic cada segundo durante la inhalación y exhalación, además de un gong al cambiar de fase.",
+                ctaTitle: "Comienza hoy tu primera sesión de calma",
+                ctaDesc: "Descarga RespiZen gratis en Google Play e incorpora la coherencia cardíaca guiada en tu día a día.",
+                footerTagline: "Coherencia Cardíaca y Respiración Guiada",
+                footerPrivacyBtn: "Política de privacidad (Datos 100% locales)",
+                privacyModalTitle: "Política de privacidad — RespiZen",
+                privacyModalBody1: "RespiZen está diseñada respetando al máximo tu privacidad. La aplicación no requiere ninguna cuenta de usuario ni datos personales.",
+                privacyModalBody2: "Todos tus ritmos personalizados, ajustes de sonido y estadísticas se almacenan exclusivamente de forma local en tu dispositivo Android.",
+                privacyModalClose: "Cerrar"
+            },
+            it: {
+                metaTitle: "RespiZen - Respiro e Calma | Coerenza Cardiaca e Respirazione Guidata",
+                metaDesc: "RespiZen è un'app di coerenza cardiaca e respirazione guidata, semplice, gratuita e personalizzabile al 100% per Android. Antistress, relax e sonno senza account.",
+                youtubeId: "q-48W1_F08U",
+                brandTagline: "Respiro & Serenità",
+                navVideo: "Presentazione",
+                navFeatures: "Funzionalità",
+                navInterface: "Anteprima",
+                navFaq: "FAQ",
+                navDownload: "Google Play",
+                heroBadge: "Gratuita • Nessun account • 100% Personalizzabile",
+                heroSubtitle: "Respiro, Calma & Coerenza Cardiaca",
+                heroShortDesc: "Coerenza cardiaca e respirazione guidata. Gratuita e personalizzabile al 100%.",
+                heroLongDesc: "Che tu stia cercando un esercizio antistress, un aiuto per il rilassamento o un modo naturale per migliorare il sonno, scegli il tuo ritmo di respirazione, avvia la sessione e lasciati guidare dall'animazione visiva e dai segnali sonori.",
+                getItOn: "Disponibile su",
+                watchVideoBtn: "Guarda il video",
+                trustPrivacy: "Nessun account",
+                trustAudio: "Tic sonoro 1s",
+                trustFree: "100% Gratuita",
+                simStartBtn: "Avvia la sessione",
+                simStopBtn: "Ferma la sessione",
+                phaseReady: "Pronto",
+                phaseInhaleLabel: "Inspira",
+                phaseHoldLabel: "Trattieni",
+                phaseExhaleLabel: "Espira",
+                videoEyebrow: "Video di presentazione",
+                videoTitle: "Scopri RespiZen in azione",
+                videoDesc: "Guarda quanto è semplice personalizzare le fasi di respirazione, seguire i segnali sonori secondo per secondo e monitorare la tua serenità.",
+                youtubeChannelLink: "Visita il canale YouTube ufficiale (@Christophe-m7x)",
+                downloadNowLink: "Scarica gratis su Google Play",
+                featuresEyebrow: "Progettata per la serenità",
+                featuresTitle: "Semplice, Precisa e Rispettosa della tua Privacy",
+                featuresSubtitle: "RespiZen va dritta all'essenziale: scegli il tuo ritmo, avvia la sessione di rilassamento e respira.",
+                feat1Title: "Una guida precisa, secondo dopo secondo",
+                feat1Desc: "RespiZen ti accompagna in ogni istante del respiro. Durante l'inspirazione e l'espirazione, un segnale regolare scandisce ogni secondo per sapere sempre a che punto sei, anche ad occhi chiusi.",
+                feat1Tag: "Volume del tic e gong di transizione regolabili",
+                feat2Title: "La tua pratica resta privata",
+                feat2Desc: "RespiZen non richiede alcun account. Le tue impostazioni e la cronologia delle sessioni sono salvate localmente sul tuo dispositivo e mai inviate a server esterni.",
+                feat2Tag: "Nessuna registrazione • Offline • Archiviazione locale",
+                feat3Title: "Respirazione totalmente personalizzabile",
+                feat3Desc: "Imposta il ritmo perfetto per te regolando la durata di ogni singola fase dei tuoi esercizi di respirazione:",
+                phaseInhale: "Inspirazione",
+                phaseHoldFull: "Pausa dopo l'inspirazione",
+                phaseExhale: "Espirazione",
+                phaseHoldEmpty: "Pausa dopo l'espirazione",
+                phaseTotal: "Durata totale della sessione",
+                feat4Title: "Monitora la tua pratica quotidiana",
+                feat4Desc: "Consulta il numero di sessioni completate, i minuti praticati e le statistiche mensili per consolidare il tuo benessere nel tempo.",
+                feat4Tag: "Grafici mensili e monitoraggio della costanza",
+                screensEyebrow: "Interfaccia ed Esperienza",
+                screensTitle: "Creata per la Calma, di Giorno e di Notte",
+                screensDesc: "Un'interfaccia scura dai toni viola rilassanti per non affaticare gli occhi prima di dormire e avere tutto a portata di mano.",
+                uiStats: "Statistiche",
+                uiMedia: "Amb. sonora",
+                uiSettings: "Impostazioni",
+                uiStart: "Avvia la sessione",
+                uiTick: "Tic secondi",
+                uiGong: "Gong respiro",
+                uiInhale: "↑ Inspira",
+                uiHoldFull: "⏸ Pausa (polmoni pieni)",
+                uiExhale: "↓ Espira",
+                uiHoldEmpty: "⏸ Pausa (polmoni vuoti)",
+                uiDuration: "⏱ Durata sessione",
+                uiTabSessions: "Sessioni",
+                uiTabTime: "Tempo praticato",
+                uiMonthLabel: "Ottobre 2026",
+                uiSessionsMonth: "Sessioni questo mese",
+                uiDaysPracticed: "Giorni praticati",
+                uiLocalData: "🔒 Salvato localmente sul dispositivo",
+                screen1Title: "1. Panoramica immediata",
+                screen1Desc: "Controlla il tuo ciclo di respiro e il suono ambientale a colpo d'occhio.",
+                screen2Title: "2. 100% Personalizzabile",
+                screen2Desc: "Regola ogni secondo di inspirazione, pause, espirazione e suoni.",
+                screen3Title: "3. Segui i tuoi progressi",
+                screen3Desc: "Visualizza le sessioni e i minuti praticati mese dopo mese.",
+                methodsEyebrow: "Rituali Quotidiani",
+                methodsTitle: "Adatta RespiZen a ogni momento della giornata",
+                method1Title: "Coerenza Cardiaca (Antistress)",
+                method1Desc: "Inspira per 5 secondi, espira per 5 secondi (6 respiri al minuto) per 5 minuti per riequilibrare il sistema nervoso e ridurre lo stress.",
+                method2Title: "Respirazione 4-7-8 (Sonno e Relax)",
+                method2Desc: "Inspira per 4 secondi, trattieni per 7 secondi ed espira lentamente per 8 secondi. Ideale prima di dormire per calmare la mente.",
+                method3Title: "Respirazione Quadrata (Concentrazione)",
+                method3Desc: "Quattro fasi uguali (inspira, trattieni, espira, pausa) per ritrovare chiarezza mentale e concentrazione.",
+                faqTitle: "Domande Frequenti",
+                faq1Q: "RespiZen è davvero gratuita?",
+                faq1A: "Sì! RespiZen è completamente gratuita su Android. Puoi personalizzare tutte le fasi di respirazione, i segnali sonori e vedere le tue statistiche.",
+                faq2Q: "Devo creare un account o avere Internet?",
+                faq2A: "Non è richiesto alcun account e funziona offline. Tutte le preferenze e la cronologia restano salvate localmente sul tuo telefono.",
+                faq3Q: "Posso praticare ad occhi chiusi senza guardare lo schermo?",
+                faq3A: "Certamente. Un delicato tic sonoro scandisce ogni secondo durante l'inspirazione e l'espirazione, accompagnato da un gong al cambio di fase.",
+                ctaTitle: "Inizia oggi la tua prima sessione di calma",
+                ctaDesc: "Scarica gratuitamente RespiZen su Google Play e porta la coerenza cardiaca guidata nella tua routine quotidiana.",
+                footerTagline: "Coerenza Cardiaca & Respirazione Guidata",
+                footerPrivacyBtn: "Informativa sulla privacy (Dati 100% locali)",
+                privacyModalTitle: "Informativa sulla privacy — RespiZen",
+                privacyModalBody1: "RespiZen è progettata nel pieno rispetto della tua privacy. L'app non richiede alcun account utente né dati personali.",
+                privacyModalBody2: "Tutti i tuoi ritmi personalizzati, le impostazioni audio e le statistiche sono salvati esclusivamente in locale sul tuo dispositivo Android.",
+                privacyModalClose: "Chiudi"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+            currentLang = lang;
+            const t = translations[lang];
+
+            document.documentElement.lang = lang;
+            document.getElementById('meta-title').textContent = t.metaTitle;
+            document.getElementById('meta-description').setAttribute('content', t.metaDesc);
+            document.getElementById('og-title').setAttribute('content', t.metaTitle);
+            document.getElementById('og-description').setAttribute('content', t.metaDesc);
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.textContent = t[key];
+                }
+            });
+
+            const ytPlayer = document.getElementById('youtube-player');
+            const targetSrc = `https://www.youtube.com/embed/${t.youtubeId}?rel=0`;
+            if (ytPlayer && ytPlayer.src !== targetSrc) {
+                ytPlayer.src = targetSrc;
+            }
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('bg-purple-600', 'text-white', 'shadow-sm');
+                btn.classList.add('text-purple-300');
+            });
+            const activeBtn = document.getElementById(`btn-lang-${lang}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-purple-600', 'text-white', 'shadow-sm');
+                activeBtn.classList.remove('text-purple-300');
+            }
+
+            if (!simRunning) {
+                document.getElementById('orb-phase-text').textContent = t.phaseReady;
+                document.querySelector('#sim-toggle-btn span').textContent = t.simStartBtn;
+            } else {
+                document.querySelector('#sim-toggle-btn span').textContent = t.simStopBtn;
+            }
+        }
+
+        let audioCtx = null;
+        let tickVolume = 4;
+        let gongVolume = 5;
+
+        function adjustVolume(type, delta) {
+            if (type === 'tick') {
+                tickVolume = Math.max(0, Math.min(5, tickVolume + delta));
+                document.getElementById('tick-vol-label').textContent = `${tickVolume}/5`;
+            } else {
+                gongVolume = Math.max(0, Math.min(5, gongVolume + delta));
+                document.getElementById('gong-vol-label').textContent = `${gongVolume}/5`;
+            }
+        }
+
+        function playRespiSound(type) {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const now = audioCtx.currentTime;
+
+                if (type === 'tick' && tickVolume > 0) {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(920, now);
+                    osc.frequency.exponentialRampToValueAtTime(320, now + 0.035);
+                    const vol = (tickVolume / 5) * 0.05;
+                    gain.gain.setValueAtTime(vol, now);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.045);
+                    return;
+                }
+
+                if (gongVolume <= 0) return;
+                const masterVol = (gongVolume / 5) * 0.14;
+
+                // Acoustic singing bowl profiles matching your WAV files
+                const profiles = {
+                    gong_inhale: { freqs: [392, 784, 1176], duration: 1.8 },
+                    bloque_inspi: { freqs: [523.25, 1046.5, 1569.75], duration: 1.3 },
+                    gong_exhale: { freqs: [293.66, 587.33, 881], duration: 1.9 },
+                    bloque_expi: { freqs: [349.23, 698.46, 1047.69], duration: 1.3 }
+                };
+
+                const profile = profiles[type];
+                if (!profile) return;
+
+                profile.freqs.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, now);
+
+                    const harmonicScale = idx === 0 ? 1 : (idx === 1 ? 0.35 : 0.12);
+                    gain.gain.setValueAtTime(0.0001, now);
+                    gain.gain.linearRampToValueAtTime(masterVol * harmonicScale, now + 0.025);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, now + profile.duration);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + profile.duration + 0.05);
+                });
+            } catch (e) {}
+        }
+
+        let simConfig = { inhale: 4, hold1: 4, exhale: 4, hold2: 4, minutes: 5 };
+        let simRunning = false;
+        let simInterval = null;
+        let simStep = 0;
+        let lastPhaseKey = '';
+
+        function setSimPreset(inhale, hold1, exhale, hold2, minutes, presetKey) {
+            simConfig = { inhale, hold1, exhale, hold2, minutes };
+            
+            document.querySelectorAll('.sim-preset-btn').forEach(btn => {
+                btn.classList.remove('bg-purple-600', 'text-white');
+                btn.classList.add('text-purple-300');
+            });
+            const activePreset = document.getElementById(`preset-${presetKey}`);
+            if (activePreset) {
+                activePreset.classList.add('bg-purple-600', 'text-white');
+                activePreset.classList.remove('text-purple-300');
+            }
+
+            const summary = (hold1 > 0 || hold2 > 0)
+                ? `${inhale}s - ${hold1}s - ${exhale}s${hold2 > 0 ? ' - ' + hold2 + 's' : ''}`
+                : `${inhale}s / ${exhale}s`;
+            document.getElementById('orb-timer-text').textContent = summary;
+            document.getElementById('sim-countdown').textContent = `${String(minutes).padStart(2, '0')}:00`;
+
+            if (simRunning) {
+                stopSimulator();
+                startSimulator();
+            }
+        }
+
+        function toggleSimulator() {
+            if (simRunning) {
+                stopSimulator();
+            } else {
+                startSimulator();
+            }
+        }
+
+        function startSimulator() {
+            simRunning = true;
+            simStep = 0;
+            lastPhaseKey = '';
+            const t = translations[currentLang];
+            const btn = document.getElementById('sim-toggle-btn');
+            btn.className = "w-full mt-2 py-3 rounded-2xl font-semibold text-sm text-white bg-[#E11D48] hover:bg-[#BE123C] shadow-lg shadow-rose-600/30 transition-all";
+            btn.querySelector('span').textContent = t.simStopBtn;
+            
+            runSimTick();
+            simInterval = setInterval(runSimTick, 1000);
+        }
+
+        function stopSimulator() {
+            simRunning = false;
+            clearInterval(simInterval);
+            const t = translations[currentLang];
+            const outer = document.getElementById('orb-outer-ring');
+            const mid = document.getElementById('orb-mid-ring');
+            const core = document.getElementById('orb-core');
+            const dot = document.getElementById('satellite-dot');
+            const btn = document.getElementById('sim-toggle-btn');
+
+            outer.style.transform = 'scale(0.64)';
+            outer.className = "w-48 h-48 rounded-full bg-purple-600/15 flex items-center justify-center";
+            mid.className = "w-40 h-40 rounded-full bg-purple-500/25 flex items-center justify-center";
+            core.style.background = 'radial-gradient(circle, #A855F7 0%, #7C3AED 70%, #4C1D95 100%)';
+            core.style.boxShadow = '0 0 35px rgba(168, 85, 247, 0.55)';
+
+            dot.style.top = '204px';
+            dot.style.left = '13px';
+
+            ['track-left', 'track-top', 'track-right', 'track-bottom'].forEach(id => {
+                document.getElementById(id).style.opacity = '0.35';
+            });
+
+            document.getElementById('orb-phase-text').textContent = t.phaseReady;
+            document.getElementById('sim-countdown').textContent = `${String(simConfig.minutes).padStart(2, '0')}:00`;
+            btn.className = "w-full mt-2 py-3 rounded-2xl font-semibold text-sm text-white bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-[#9333EA] hover:to-[#7E22CE] shadow-lg shadow-purple-600/30 transition-all";
+            btn.querySelector('span').textContent = t.simStartBtn;
+        }
+
+        function runSimTick() {
+            const { inhale, hold1, exhale, hold2, minutes } = simConfig;
+            const totalCycle = inhale + hold1 + exhale + hold2;
+            const totalSessionSecs = minutes * 60;
+            const remainingSecs = Math.max(0, totalSessionSecs - simStep);
+
+            const mins = Math.floor(remainingSecs / 60);
+            const secs = remainingSecs % 60;
+            document.getElementById('sim-countdown').textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+            const pos = simStep % totalCycle;
+            const t = translations[currentLang];
+            const outer = document.getElementById('orb-outer-ring');
+            const mid = document.getElementById('orb-mid-ring');
+            const core = document.getElementById('orb-core');
+            const dot = document.getElementById('satellite-dot');
+
+            ['track-left', 'track-top', 'track-right', 'track-bottom'].forEach(id => {
+                document.getElementById(id).style.opacity = '0.25';
+            });
+
+            let phaseKey = '';
+            let phaseName = '';
+            let secInPhase = 0;
+            let phaseTotal = 1;
+
+            if (pos < inhale) {
+                phaseKey = 'inhale';
+                phaseName = t.phaseInhaleLabel;
+                secInPhase = pos + 1;
+                phaseTotal = inhale;
+                const progress = secInPhase / inhale;
+                const scale = 0.64 + (0.36 * progress);
+
+                outer.style.transform = `scale(${scale.toFixed(2)})`;
+                outer.className = "w-48 h-48 rounded-full bg-purple-600/18 flex items-center justify-center";
+                mid.className = "w-40 h-40 rounded-full bg-purple-500/28 flex items-center justify-center";
+                core.style.background = 'radial-gradient(circle, #A855F7 0%, #7C3AED 70%, #4C1D95 100%)';
+                core.style.boxShadow = '0 0 48px rgba(168, 85, 247, 0.72)';
+
+                document.getElementById('track-left').style.opacity = '1';
+                const topY = 204 - (168 * progress);
+                dot.style.left = '13px';
+                dot.style.top = `${topY.toFixed(0)}px`;
+                dot.style.backgroundColor = 'rgba(168, 85, 247, 0.45)';
+                dot.style.boxShadow = '0 0 14px #C084FC';
+
+            } else if (pos < inhale + hold1) {
+                phaseKey = 'hold1';
+                phaseName = t.phaseHoldLabel;
+                secInPhase = (pos - inhale) + 1;
+                phaseTotal = hold1;
+                const progress = secInPhase / hold1;
+
+                outer.style.transform = 'scale(1.0)';
+                outer.className = "w-48 h-48 rounded-full bg-fuchsia-600/18 flex items-center justify-center";
+                mid.className = "w-40 h-40 rounded-full bg-fuchsia-500/28 flex items-center justify-center";
+                core.style.background = 'radial-gradient(circle, #E879F9 0%, #C026D3 70%, #701A75 100%)';
+                core.style.boxShadow = '0 0 52px rgba(217, 70, 239, 0.75)';
+
+                document.getElementById('track-top').style.opacity = '1';
+                const leftX = 36 + (168 * progress);
+                dot.style.top = '13px';
+                dot.style.left = `${leftX.toFixed(0)}px`;
+                dot.style.backgroundColor = 'rgba(217, 70, 239, 0.45)';
+                dot.style.boxShadow = '0 0 14px #F0ABFC';
+
+            } else if (pos < inhale + hold1 + exhale) {
+                phaseKey = 'exhale';
+                phaseName = t.phaseExhaleLabel;
+                secInPhase = (pos - inhale - hold1) + 1;
+                phaseTotal = exhale;
+                const progress = secInPhase / exhale;
+                const scale = 1.0 - (0.36 * progress);
+
+                outer.style.transform = `scale(${scale.toFixed(2)})`;
+                outer.className = "w-48 h-48 rounded-full bg-sky-500/18 flex items-center justify-center";
+                mid.className = "w-40 h-40 rounded-full bg-sky-400/28 flex items-center justify-center";
+                core.style.background = 'radial-gradient(circle, #38BDF8 0%, #0284C7 70%, #0C4A6E 100%)';
+                core.style.boxShadow = '0 0 42px rgba(14, 165, 233, 0.65)';
+
+                document.getElementById('track-right').style.opacity = '1';
+                const topY = 36 + (168 * progress);
+                dot.style.left = '227px';
+                dot.style.top = `${topY.toFixed(0)}px`;
+                dot.style.backgroundColor = 'rgba(14, 165, 233, 0.45)';
+                dot.style.boxShadow = '0 0 14px #7DD3FC';
+
+            } else {
+                phaseKey = 'hold2';
+                phaseName = t.phaseHoldLabel;
+                secInPhase = (pos - inhale - hold1 - exhale) + 1;
+                phaseTotal = hold2;
+                const progress = secInPhase / hold2;
+
+                outer.style.transform = 'scale(0.64)';
+                outer.className = "w-48 h-48 rounded-full bg-fuchsia-600/18 flex items-center justify-center";
+                mid.className = "w-40 h-40 rounded-full bg-fuchsia-500/28 flex items-center justify-center";
+                core.style.background = 'radial-gradient(circle, #D946EF 0%, #A21CAF 70%, #4A044E 100%)';
+                core.style.boxShadow = '0 0 38px rgba(217, 70, 239, 0.65)';
+
+                document.getElementById('track-bottom').style.opacity = '1';
+                const leftX = 204 - (168 * progress);
+                dot.style.top = '227px';
+                dot.style.left = `${leftX.toFixed(0)}px`;
+                dot.style.backgroundColor = 'rgba(217, 70, 239, 0.45)';
+                dot.style.boxShadow = '0 0 14px #F0ABFC';
+            }
+
+            if (phaseKey !== lastPhaseKey) {
+                const soundMap = {
+                    inhale: 'gong_inhale',
+                    hold1: 'bloque_inspi',
+                    exhale: 'gong_exhale',
+                    hold2: 'bloque_expi'
+                };
+                playRespiSound(soundMap[phaseKey]);
+                lastPhaseKey = phaseKey;
+            } else {
+                playRespiSound('tick');
+            }
+
+            document.getElementById('orb-phase-text').textContent = phaseName;
+            document.getElementById('orb-timer-text').textContent = `${secInPhase}s / ${phaseTotal}s`;
+
+            simStep++;
+        }
+
+        // Locale URLs + automatic browser-language selection
+        function chooseLanguage(lang) {
+            if (!translations[lang]) return;
+            try { localStorage.setItem('respizen-language', lang); } catch (e) {}
+            window.location.href = '/respizen/' + lang + '/';
+        }
+
+        (function initializeLocale() {
+            const supported = ['fr', 'en', 'es', 'it'];
+            const parts = window.location.pathname.split('/').filter(Boolean);
+            const explicitLang = (parts.length >= 2 && parts[0] === 'respizen' && supported.includes(parts[1])) ? parts[1] : null;
+            let preferred = null;
+            try { preferred = localStorage.getItem('respizen-language'); } catch (e) {}
+            const browserPrefs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en']);
+            const browserLang = (browserPrefs.map(x => (x || '').toLowerCase().split('-')[0]).find(x => supported.includes(x))) || 'en';
+            if (!explicitLang && window.location.pathname.replace(/\/$/, '') === '/respizen') {
+                const targetLang = (preferred && supported.includes(preferred)) ? preferred : browserLang;
+                if (targetLang !== 'en') {
+                    window.location.replace('/respizen/' + targetLang + '/');
+                    return;
+                }
+            }
+            setLanguage(explicitLang || (preferred && supported.includes(preferred) ? preferred : 'en'));
+        })();
+
+    </script>
+</body>
+</html>

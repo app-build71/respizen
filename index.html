@@ -6,29 +6,30 @@
     
     <!-- Primary SEO Meta Tags (Default: English) -->
     <title id="meta-title">RespiZen - Breathing & Calm | Cardiac Coherence & Guided Breathing App</title>
-    <meta id="meta-description" name="description" content="RespiZen is a simple, free, and 100% customizable cardiac coherence and guided breathing app for Android. Anti-stress, relaxation, sleep aid with second-by-second audio cues and full privacy.">
+    <meta id="meta-description" name="description" content="RespiZen is a simple, free, and 100% customizable cardiac coherence and guided breathing app for Android. Anti-stress, relaxation, sleep aid with second-by-second cues.">
     <meta id="meta-keywords" name="keywords" content="RespiZen, cardiac coherence, guided breathing, breathing exercises, anti-stress app, relaxation, sleep aid, 4-7-8 breathing, box breathing, free breathing app Android">
     <meta name="author" content="AppBuild71">
     <meta name="robots" content="index, follow">
     
-    <!-- Multilingual Alternate Hreflang Tags for International SEO -->
-    <link rel="alternate" hreflang="en" href="#lang-en">
-    <link rel="alternate" hreflang="fr" href="#lang-fr">
-    <link rel="alternate" hreflang="es" href="#lang-es">
-    <link rel="alternate" hreflang="it" href="#lang-it">
-    <link rel="alternate" hreflang="x-default" href="#lang-en">
+    <!-- Localized SEO URLs -->
+    <link rel="canonical" href="https://app-build71.github.io/respizen/">
+    <link rel="alternate" hreflang="en" href="https://app-build71.github.io/respizen/en/">
+    <link rel="alternate" hreflang="fr" href="https://app-build71.github.io/respizen/fr/">
+    <link rel="alternate" hreflang="es" href="https://app-build71.github.io/respizen/es/">
+    <link rel="alternate" hreflang="it" href="https://app-build71.github.io/respizen/it/">
+    <link rel="alternate" hreflang="x-default" href="https://app-build71.github.io/respizen/">
 
     <!-- Open Graph / Facebook / Social Sharing -->
-    <meta id="og-title" property="og:title" content="RespiZen - Breathing & Calm | Free Cardiac Coherence App">
-    <meta id="og-description" property="og:description" content="Cardiac coherence & guided breathing. Free and 100% customizable. Practice anti-stress and relaxation exercises with second-by-second guidance and zero account required.">
+    <meta id="og-title" property="og:title" content="RespiZen - Breathing & Calm | Cardiac Coherence & Guided Breathing App">
+    <meta id="og-description" property="og:description" content="RespiZen is a simple, free, and 100% customizable cardiac coherence and guided breathing app for Android. Anti-stress, relaxation, sleep aid with second-by-second cues.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://play.google.com/store/apps/details?id=fr.appbuild71.respizen">
     <meta property="og:site_name" content="RespiZen">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta id="twitter-title" name="twitter:title" content="RespiZen - Breathing & Calm">
-    <meta id="twitter-description" name="twitter:description" content="Cardiac coherence & guided breathing. Free and 100% customizable on Android.">
+    <meta id="twitter-title" name="twitter:title" content="RespiZen - Breathing & Calm | Cardiac Coherence & Guided Breathing App">
+    <meta id="twitter-description" name="twitter:description" content="RespiZen is a simple, free, and 100% customizable cardiac coherence and guided breathing app for Android. Anti-stress, relaxation, sleep aid with second-by-second cues.">
 
     <!-- Google Fonts: Inter & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -217,10 +218,10 @@
                 <!-- Right Controls: Language Switcher & Compact CTA -->
                 <div class="flex items-center gap-2 sm:gap-3">
                     <div role="group" aria-label="Language switcher" class="flex items-center bg-zen-bg/80 border border-purple-500/30 rounded-full p-1">
-                        <button onclick="setLanguage('en')" id="btn-lang-en" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all bg-purple-600 text-white shadow-sm" title="English">EN</button>
-                        <button onclick="setLanguage('fr')" id="btn-lang-fr" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-purple-300 hover:text-white" title="Français">FR</button>
-                        <button onclick="setLanguage('es')" id="btn-lang-es" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-purple-300 hover:text-white" title="Español">ES</button>
-                        <button onclick="setLanguage('it')" id="btn-lang-it" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-purple-300 hover:text-white" title="Italiano">IT</button>
+                        <button onclick="chooseLanguage('en')" id="btn-lang-en" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all bg-purple-600 text-white shadow-sm" title="English">EN</button>
+                        <button onclick="chooseLanguage('fr')" id="btn-lang-fr" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-purple-300 hover:text-white" title="Français">FR</button>
+                        <button onclick="chooseLanguage('es')" id="btn-lang-es" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-purple-300 hover:text-white" title="Español">ES</button>
+                        <button onclick="chooseLanguage('it')" id="btn-lang-it" class="lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-purple-300 hover:text-white" title="Italiano">IT</button>
                     </div>
 
                     <a href="https://play.google.com/store/apps/details?id=fr.appbuild71.respizen" 
@@ -1617,6 +1618,32 @@
 
             simStep++;
         }
+
+        // Locale URLs + automatic browser-language selection
+        function chooseLanguage(lang) {
+            if (!translations[lang]) return;
+            try { localStorage.setItem('respizen-language', lang); } catch (e) {}
+            window.location.href = '/respizen/' + lang + '/';
+        }
+
+        (function initializeLocale() {
+            const supported = ['fr', 'en', 'es', 'it'];
+            const parts = window.location.pathname.split('/').filter(Boolean);
+            const explicitLang = (parts.length >= 2 && parts[0] === 'respizen' && supported.includes(parts[1])) ? parts[1] : null;
+            let preferred = null;
+            try { preferred = localStorage.getItem('respizen-language'); } catch (e) {}
+            const browserPrefs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en']);
+            const browserLang = (browserPrefs.map(x => (x || '').toLowerCase().split('-')[0]).find(x => supported.includes(x))) || 'en';
+            if (!explicitLang && window.location.pathname.replace(/\/$/, '') === '/respizen') {
+                const targetLang = (preferred && supported.includes(preferred)) ? preferred : browserLang;
+                if (targetLang !== 'en') {
+                    window.location.replace('/respizen/' + targetLang + '/');
+                    return;
+                }
+            }
+            setLanguage(explicitLang || (preferred && supported.includes(preferred) ? preferred : 'en'));
+        })();
+
     </script>
 </body>
 </html>
